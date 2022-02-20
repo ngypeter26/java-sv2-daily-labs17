@@ -5,6 +5,7 @@ import org.mariadb.jdbc.MariaDbDataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,6 +21,8 @@ public class Main {
         ActorsRepository actorsRepository = new ActorsRepository(dataSource);
         actorsRepository.saveActor("Jack Doe");
 
-
+        List<String> actors = actorsRepository.findActorsWithprefix("J");
+        System.out.println(actors.size());
+        System.out.println(actors);
     }
 }
